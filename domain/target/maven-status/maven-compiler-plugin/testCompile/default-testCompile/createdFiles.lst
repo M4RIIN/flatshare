@@ -1,0 +1,4 @@
+com\lagrange\ColocationTest.class
+com\lagrange\services\ShuffleCommuneTaskTest.class
+com\lagrange\usecase\colocation\ColocationFixture.class
+com\lagrange\usecase\colocation\GetColocationByIdTest.class

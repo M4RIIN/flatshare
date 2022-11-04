@@ -1,0 +1,24 @@
+<p>{{colocation.id}}</p>
+<ul>
+    <li *ngFor="let roomate of colocation.roomates">
+        {{roomate.name}}
+        <ul>
+            <li *ngFor="let tache of roomate.taches">
+                {{tache}}
+            </li>
+
+        </ul>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let room of colocation.rooms">
+        {{room.type}} | {{room.scope}}
+        <ul>
+            <li *ngFor="let tache of room.task">
+                {{tache}} 
+            </li>
+        </ul>
+    </li>
+
+</ul>

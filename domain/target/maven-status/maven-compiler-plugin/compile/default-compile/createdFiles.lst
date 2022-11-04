@@ -1,0 +1,13 @@
+com\lagrange\port\piecetache\PieceTacheRepository.class
+com\lagrange\entity\colocation\Colocation.class
+com\lagrange\port\colocation\ColocationRepository.class
+com\lagrange\entity\colocation\ColocationId.class
+com\lagrange\entity\piece\Piece.class
+com\lagrange\services\ShuffleCommuneTask.class
+com\lagrange\entity\piece\TypePiece.class
+com\lagrange\entity\tache\Tache.class
+com\lagrange\entity\piece\ScopePiece.class
+com\lagrange\entity\colocataire\Colocataire.class
+com\lagrange\usecase\colocation\IGetColocationById.class
+com\lagrange\entity\colocataire\ColocataireId.class
+com\lagrange\usecase\colocation\GetColocationById.class

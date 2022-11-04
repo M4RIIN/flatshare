@@ -1,0 +1,18 @@
+
+x
+java:S1488E"]Immediately return this expression instead of assigning it to the temporary variable "clone".(ŸÄÕÑùÿÿÿÿ
+>
+java:S4274"(Replace this assert with a proper check.(Ø¹¸Ã
+C
+java:S4274"(Replace this assert with a proper check.(Á•¦ñşÿÿÿÿ
+C
+java:S4274"(Replace this assert with a proper check.(ÉÚÍÎûÿÿÿÿ
+G
+java:S1602",Remove useless curly braces around statement(¶Çüàøÿÿÿÿ
+>
+java:S42741"(Replace this assert with a proper check.(âÉ»
+n
+java:S2975C"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(õîâúÿÿÿÿ
+Q	java:S125F"<This block of commented-out lines of code should be removed.(¬®ş¤
+g
+java:S1128"ERemove this unused import 'com.lagrange.services.ShuffleCommuneTask'.(¤šÿúÿÿÿÿ8˜¬òòÃ0
