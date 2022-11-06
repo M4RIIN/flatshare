@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Roomate {
     private final String name;
-    private final List<String> taches;
+    private final List<Tache> taches;
 
-    public Roomate(String name, List<String> taches) {
+    public Roomate(String name, List<Tache> taches) {
         this.name = name;
         this.taches = taches;
     }
@@ -15,7 +15,7 @@ public class Roomate {
         return name;
     }
 
-    public List<String> getTaches() {
+    public List<Tache> getTaches() {
         return taches;
     }
 }

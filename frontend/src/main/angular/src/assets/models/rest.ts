@@ -13,5 +13,10 @@ export class Room{
 
 export class Roomate{
     name!: string;
-    taches: string[] = [];
+    taches: Tache[] = [];
+}
+
+export class Tache{
+  nom!:string;
+  scope!:string;
 }

@@ -5,9 +5,9 @@ import java.util.List;
 public class Room {
     private String type;
     private String scope;
-    private List<String> task;
+    private List<Tache> task;
 
-    public Room(String type, String scope, List<String> task) {
+    public Room(String type, String scope, List<Tache> task) {
         this.type = type;
         this.scope = scope;
         this.task = task;
@@ -21,7 +21,7 @@ public class Room {
         return scope;
     }
 
-    public List<String> getTask() {
+    public List<Tache> getTask() {
         return task;
     }
 }

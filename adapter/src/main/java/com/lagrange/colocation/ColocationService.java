@@ -32,19 +32,31 @@ public class ColocationService implements IColocationService {
 
     private List<Roomate> getRoomates(Colocation colocation) {
         return colocation.getColocataires().stream()
-            .map(elt -> new Roomate(elt.getNom(), getTachesCollocataire(elt)))
+            .map(elt -> new Roomate(elt.getNom(), mapTacheWithOwner(elt,colocation.getPieces())))
             .collect(Collectors.toList());
     }
 
-    private List<String> getTachesCollocataire(Colocataire elt) {
-        return elt.getTachesList().stream().map(Tache::getLibelle).collect(Collectors.toList());
+    private List<com.lagrange.colocation.Tache> mapTacheWithOwner(Colocataire elt,List<Piece> pieces) {
+        return getTachesCollocataire(elt).stream().map(t -> new com.lagrange.colocation.Tache(t.getLibelle(), getScopeOfTache(t.getLibelle(),pieces))).collect(Collectors.toList());
+    }
+
+    private String getScopeOfTache(String tache,List<Piece> pieces){
+     return  pieces.stream()
+                .filter(p -> p.getTaches().stream().map(Tache::getLibelle).collect(Collectors.toList()).contains(tache))
+                .findFirst()
+                .map(elt -> elt.getScopePiece().name())
+             .orElse("error");
+    }
+
+    private List<Tache> getTachesCollocataire(Colocataire elt) {
+        return elt.getTachesList();
     }
 
     private Room mapPieceToRoom(Piece piece) {
         return new Room(piece.getTypePiece().name(), piece.getScopePiece().name(), mapTache(piece));
     }
 
-    private List<String> mapTache(Piece piece) {
-        return piece.getTaches().stream().map(Tache::getLibelle).collect(Collectors.toList());
+    private List<com.lagrange.colocation.Tache> mapTache(Piece piece) {
+        return piece.getTaches().stream().map(elt -> new com.lagrange.colocation.Tache(elt.getLibelle(),piece.getScopePiece().name())).collect(Collectors.toList());
     }
 }

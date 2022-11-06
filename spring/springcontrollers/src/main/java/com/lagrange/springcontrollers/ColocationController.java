@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ColocationController  {
 
-    @Autowired
-    private IColocationService colocationService;
+    private final IColocationService colocationService;
+
     @GetMapping(path = "colocation")
     public FlatShare getByUuid(@RequestParam("uuid") String uuid){
         return colocationService.getFlatShareById(uuid);
