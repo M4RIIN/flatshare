@@ -39,7 +39,7 @@ jobs:
               restore-keys: ${{ runner.os }}-m2   
               
           - run: mvn -B package --file pom.xml -DskipTests
-          - run: mkdir staging && cp ../../spring/springconfig/target/springconfig-0.0.1-SNAPSHOT.jar staging
+          - run: mkdir staging && cp spring/springconfig/target/springconfig-0.0.1-SNAPSHOT.jar staging
           - uses: actions/upload-artifact@v1
             with:
               name: Package
