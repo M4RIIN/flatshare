@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lagrange</groupId>
-    <artifactId>spring-config</artifactId>
+    <artifactId>springconfig</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-config</name>
+    <name>springconfig</name>
     <packaging>jar</packaging>
     <description>spring-config</description>
     <properties>
@@ -86,7 +86,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.lagrange.spring-config.SpringConfigApplication</mainClass>
+                                <mainClass>com.lagrange.springconfig.SpringConfigApplication</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
