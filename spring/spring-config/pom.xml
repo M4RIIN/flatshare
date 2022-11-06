@@ -86,7 +86,7 @@
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
-                                <mainClass>com.lagrange.springconfig.SpringConfigApplication</mainClass>
+                                <mainClass>com.lagrange.spring-config.SpringConfigApplication</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
