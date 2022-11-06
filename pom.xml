@@ -14,7 +14,7 @@
         <module>adapter</module>
         <module>consoleApp/application</module>
         <module>consoleApp/console-view</module>
-        <module>spring/spring-config</module>
+        <module>spring/springconfig</module>
         <module>spring/springcontrollers</module>
         <module>frontend</module>
     </modules>
