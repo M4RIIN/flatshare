@@ -4,7 +4,6 @@ import com.lagrange.entity.colocataire.Colocataire;
 import com.lagrange.entity.piece.Piece;
 import com.lagrange.entity.piece.ScopePiece;
 import com.lagrange.entity.tache.Tache;
-import com.lagrange.services.ShuffleCommuneTask;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -19,9 +18,15 @@ public class Colocation implements Cloneable {
 
     private final List<Piece> pieces;
     private final ColocationId colocationId;
+    private final String name;
     private List<Colocataire> colocataires;
 
-    public Colocation(List<Piece> pieces, ColocationId colocationId) {
+    public String getName() {
+        return name;
+    }
+
+    public Colocation(List<Piece> pieces, ColocationId colocationId, String name) {
+        this.name = name;
         assert colocationId != null;
         assert pieces != null;
         assert !pieces.isEmpty();

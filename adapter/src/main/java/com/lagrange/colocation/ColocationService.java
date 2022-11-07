@@ -27,7 +27,7 @@ public class ColocationService implements IColocationService {
 
     private FlatShare mapColocationToFlatSHare(Colocation colocation) {
         return new FlatShare(colocation.getPieces().stream()
-            .map(this::mapPieceToRoom).collect(Collectors.toList()), colocation.getColocationId().getUuid().toString(), getRoomates(colocation));
+            .map(this::mapPieceToRoom).collect(Collectors.toList()), colocation.getColocationId().getUuid().toString(), getRoomates(colocation), colocation.getName());
     }
 
     private List<Roomate> getRoomates(Colocation colocation) {

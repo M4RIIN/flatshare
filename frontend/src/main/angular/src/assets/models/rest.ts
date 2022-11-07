@@ -3,6 +3,7 @@ export class Colocation{
     rooms!: Room[];
     id!:string;
     roomates!: Roomate[];
+    name!:string;
 }
 
 export class Room{

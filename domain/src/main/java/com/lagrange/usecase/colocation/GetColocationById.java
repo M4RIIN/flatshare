@@ -8,7 +8,7 @@ import com.lagrange.services.ShuffleCommuneTask;
 public class GetColocationById implements IGetColocationById {
 
     private final ColocationRepository colocationRepository;
-    private ShuffleCommuneTask shuffleCommuneTask;
+    private ShuffleCommuneTask shuffleCommuneTask = new ShuffleCommuneTask(150);
 
     public GetColocationById(ColocationRepository colocationRepository) {
         this.colocationRepository = colocationRepository;
@@ -16,7 +16,6 @@ public class GetColocationById implements IGetColocationById {
 
     @Override
     public Colocation getColocation(ColocationId colocationId){
-        shuffleCommuneTask =  new ShuffleCommuneTask(150); // TODO ENORME TRICHE
         //return colocationRepository.getColocationById(colocationId);
         //TODO UNIQUEMENT POUR TESTER
         Colocation colocation = colocationRepository.getColocationById(colocationId);

@@ -8,10 +8,12 @@ public class FlatShare {
     private String id;
     private List<Roomate> roomates;
 
-    public FlatShare(List<Room> rooms, String id, List<Roomate> roomates) {
+    private final String name;
+    public FlatShare(List<Room> rooms, String id, List<Roomate> roomates, String name) {
         this.rooms = rooms;
         this.id = id;
         this.roomates = roomates;
+        this.name = name;
     }
 
     public List<Room> getRooms() {
@@ -24,5 +26,9 @@ public class FlatShare {
 
     public List<Roomate> getRoomates() {
         return roomates;
+    }
+
+    public String getName() {
+        return name;
     }
 }
