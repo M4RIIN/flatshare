@@ -21,7 +21,7 @@ public final class ColocationFixture {
     }
 
     public static Colocation createColocation(){
-        return new Colocation(List.of(cuisineCommune(),chambrePrivee(),chambrePrivee()),colocationID(), name);
+        return new Colocation(List.of(cuisineCommune(),chambrePrivee(),chambrePrivee()),colocationID(), "colocation");
     }
 
     public static Colocataire createTomColocataire(List<Piece> pieces){

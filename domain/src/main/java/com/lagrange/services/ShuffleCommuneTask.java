@@ -18,6 +18,7 @@ public class ShuffleCommuneTask {
     }
 
     public Colocation apply(Colocation colocation){
+        if(colocation.getColocataires().isEmpty()) return colocation;
         List<Tache> tachesDePieceCommunes = colocation.getTacheCommune();
         Collections.shuffle(tachesDePieceCommunes,random);
         Iterator<Tache> tacheIterator = tachesDePieceCommunes.listIterator();
