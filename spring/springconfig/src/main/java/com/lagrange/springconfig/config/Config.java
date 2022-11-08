@@ -53,15 +53,4 @@ public class Config  {
         return new ColocationController(colocationService);
     }
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("*")
-                    .allowedMethods("PUT", "DELETE", "GET", "POST");
-            }
-        };
-    }
-
 }
