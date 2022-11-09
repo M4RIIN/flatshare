@@ -6,15 +6,18 @@ import com.lagrange.colocation.IColocationService;
 import com.lagrange.mock.*;
 import com.lagrange.port.colocation.ColocationRepository;
 import com.lagrange.port.piecetache.PieceTacheRepository;
+import com.lagrange.services.ShuffleCommuneTask;
 import com.lagrange.springcontrollers.ColocationController;
+import com.lagrange.usecase.colocation.GetAllColocation;
+import com.lagrange.usecase.colocation.GetAllColocationImpl;
 import com.lagrange.usecase.colocation.GetColocationById;
 import com.lagrange.usecase.colocation.IGetColocationById;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
+@EnableScheduling
 public class Config  {
 
     @Bean
@@ -44,9 +47,19 @@ public class Config  {
     public IGetColocationById getColocationById(ColocationRepository colocationRepository){
         return new GetColocationById(colocationRepository);
     }
+
     @Bean
-    public IColocationService colocationService(IGetColocationById getColocationById){
-        return new ColocationService(getColocationById);
+    public GetAllColocation getAllColocation(ColocationRepository colocationRepository){
+        return new GetAllColocationImpl(colocationRepository);
+    }
+
+    @Bean
+    public ShuffleCommuneTask shuffleCommuneTask(){
+        return new ShuffleCommuneTask(150);
+    }
+    @Bean
+    public IColocationService colocationService(IGetColocationById getColocationById,GetAllColocation getAllColocation,ShuffleCommuneTask shuffleCommuneTask){
+        return new ColocationService(getColocationById, getAllColocation, shuffleCommuneTask);
     }
     @Bean
     public ColocationController colocationController(IColocationService colocationService){

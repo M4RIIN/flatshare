@@ -7,6 +7,7 @@ import com.lagrange.port.colocation.ColocationRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ColocationMock implements ColocationRepository {
 
@@ -31,6 +32,15 @@ public class ColocationMock implements ColocationRepository {
        colocataireMock.getColocataireByUUIDColocation(colocation.getColocationId().getUuid())
                .forEach(colocation::addColocataire);
        return colocation;
+    }
+
+    @Override
+    public List<Colocation> getAll() {
+       return colocationDb.stream()
+            .map(elt -> new ColocationId(elt.uuidColocation))
+            .map(this::getColocationById)
+            .collect(Collectors.toList());
+
     }
 
     private static ColocationData getColocationNameById(ColocationId colocationId) {

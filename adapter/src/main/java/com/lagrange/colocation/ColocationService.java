@@ -5,6 +5,8 @@ import com.lagrange.entity.colocation.Colocation;
 import com.lagrange.entity.colocation.ColocationId;
 import com.lagrange.entity.piece.Piece;
 import com.lagrange.entity.tache.Tache;
+import com.lagrange.services.ShuffleCommuneTask;
+import com.lagrange.usecase.colocation.GetAllColocation;
 import com.lagrange.usecase.colocation.IGetColocationById;
 
 import java.util.List;
@@ -14,15 +16,24 @@ import java.util.stream.Collectors;
 public class ColocationService implements IColocationService {
 
     private final IGetColocationById getColocationById;
+    private final GetAllColocation getAllColocation;
+    private final ShuffleCommuneTask shuffleCommuneTask;
 
-    public ColocationService(IGetColocationById getColocationById) {
+    public ColocationService(IGetColocationById getColocationById, GetAllColocation getAllColocation, ShuffleCommuneTask shuffleCommuneTask) {
         this.getColocationById = getColocationById;
+        this.getAllColocation = getAllColocation;
+        this.shuffleCommuneTask = shuffleCommuneTask;
     }
 
     @Override
     public FlatShare getFlatShareById(String id){
         Colocation colocation = getColocationById.getColocation(new ColocationId(UUID.fromString(id)));
         return mapColocationToFlatSHare(colocation);
+    }
+
+    @Override
+    public void shuffleCommuneTaskForEveryFlatshare() {
+        getAllColocation.apply().forEach(shuffleCommuneTask::apply);
     }
 
     private FlatShare mapColocationToFlatSHare(Colocation colocation) {
