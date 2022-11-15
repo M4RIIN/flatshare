@@ -12,13 +12,14 @@ public class PieceTacheMock implements PieceTacheRepository {
     static {
         bdd = new HashMap<>();
         bdd.put(TypePiece.CHAMBRE, Arrays.asList(
-            new Tache("Nettoyer sol chambre"),
+            new Tache("Passer aspirateur chambre"),
             new Tache("Ranger chambre"),
             new Tache("Changer draps")
         ));
         bdd.put(TypePiece.CUISINE, Arrays.asList(
             new Tache("Nettoyer sol cuisine"),
-            new Tache("Nettoyer plan de travail")
+            new Tache("Nettoyer plan de travail"),
+            new Tache("Ranger cuisine")
         ));
         bdd.put(TypePiece.TOILETTES, Arrays.asList(
             new Tache("Nettoyer sol toilettes"),
@@ -32,7 +33,11 @@ public class PieceTacheMock implements PieceTacheRepository {
         bdd.put(TypePiece.SALON, Arrays.asList(
             new Tache("Nettoyer sol salon"),
             new Tache("Ranger salon"),
-            new Tache("Nettoyer vitre salon")
+            new Tache("Nettoyer vitre salon"),
+            new Tache("Enlever toiles araignées")
+        ));
+        bdd.put(TypePiece.ESCALIER, Arrays.asList(
+            new Tache("Nettoyer sol escalier")
         ));
     }
 

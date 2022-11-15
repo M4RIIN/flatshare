@@ -6,8 +6,10 @@ import com.lagrange.colocation.IColocationService;
 import com.lagrange.mock.*;
 import com.lagrange.port.colocation.ColocationRepository;
 import com.lagrange.port.piecetache.PieceTacheRepository;
+import com.lagrange.services.SEEDGENERATOR;
 import com.lagrange.services.ShuffleCommuneTask;
 import com.lagrange.springcontrollers.ColocationController;
+import com.lagrange.springcontrollers.TacheController;
 import com.lagrange.usecase.colocation.GetAllColocation;
 import com.lagrange.usecase.colocation.GetAllColocationImpl;
 import com.lagrange.usecase.colocation.GetColocationById;
@@ -55,15 +57,22 @@ public class Config  {
 
     @Bean
     public ShuffleCommuneTask shuffleCommuneTask(){
-        return new ShuffleCommuneTask(150);
+        SEEDGENERATOR.getINSTANCE();
+        return new ShuffleCommuneTask();
     }
     @Bean
     public IColocationService colocationService(IGetColocationById getColocationById,GetAllColocation getAllColocation,ShuffleCommuneTask shuffleCommuneTask){
         return new ColocationService(getColocationById, getAllColocation, shuffleCommuneTask);
     }
+
     @Bean
     public ColocationController colocationController(IColocationService colocationService){
         return new ColocationController(colocationService);
+    }
+
+    @Bean
+    public TacheController tacheController(IColocationService colocationService){
+        return new TacheController(colocationService);
     }
 
 }

@@ -14,7 +14,7 @@ class ShuffleCommuneTaskTest {
     void apply() {
         Colocation colocation = createPopulateColocation();
         long seed = 10;
-       ShuffleCommuneTask shuffleCommuneTask = new ShuffleCommuneTask(seed);
+       ShuffleCommuneTask shuffleCommuneTask = new ShuffleCommuneTask();
         Colocation colocationShuffled = shuffleCommuneTask.apply(colocation);
         assertEquals(List.of(addColocataireIDToTache(creerTacheNettoyerSol(),MARIN_ID)), colocationShuffled.getColocataires().get(0).getTachesHebdommadaire());
         assertEquals(List.of(addColocataireIDToTache(creerTacheFaireCuisine(),TOM_ID)), colocationShuffled.getColocataires().get(1).getTachesHebdommadaire());

@@ -15,6 +15,7 @@ public class GetColocationById implements IGetColocationById {
 
     @Override
     public Colocation getColocation(ColocationId colocationId){
-        return colocationRepository.getColocationById(colocationId);
+        Colocation colocation =  colocationRepository.getColocationById(colocationId);
+        return new ShuffleCommuneTask().apply(colocation);
     }
 }

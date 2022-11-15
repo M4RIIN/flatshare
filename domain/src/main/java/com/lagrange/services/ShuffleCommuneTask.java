@@ -11,13 +11,14 @@ import java.util.Random;
 
 public class ShuffleCommuneTask {
 
-    private final Random random;
+    private Random random;
 
-    public ShuffleCommuneTask(long seed) {
-        random = new Random(seed);
+    public ShuffleCommuneTask() {
+
     }
 
     public Colocation apply(Colocation colocation){
+        random = new Random(SEEDGENERATOR.getINSTANCE().GET_SEED());
         if(colocation.getColocataires().isEmpty()) return colocation;
         List<Tache> tachesDePieceCommunes = colocation.getTacheCommune();
         Collections.shuffle(tachesDePieceCommunes,random);

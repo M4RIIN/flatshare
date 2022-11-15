@@ -26,6 +26,7 @@ public class ColocationPieceMock {
         colocationPieceDb.add(new ColocationPieceData(TypePiece.SALLE_DE_BAIN, ScopePiece.PRIVEE, UUID.fromString("69e349a5-edca-49d7-8876-d2a5b78745ea")));
         colocationPieceDb.add(new ColocationPieceData(TypePiece.SALLE_DE_BAIN, ScopePiece.PRIVEE, UUID.fromString("69e349a5-edca-49d7-8876-d2a5b78745ea")));
         colocationPieceDb.add(new ColocationPieceData(TypePiece.SALON, ScopePiece.COMMUNE, UUID.fromString("69e349a5-edca-49d7-8876-d2a5b78745ea")));
+        colocationPieceDb.add(new ColocationPieceData(TypePiece.ESCALIER, ScopePiece.COMMUNE, UUID.fromString("69e349a5-edca-49d7-8876-d2a5b78745ea")));
 
     }
 
