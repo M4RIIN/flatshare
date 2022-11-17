@@ -11,6 +11,6 @@ export class ColocationService {
   constructor(private _httpClient: HttpClient) { }
 
   getColocation():Observable<Colocation>{
-    return this._httpClient.get<any>("http://localhost:8080/colocation?uuid=69e349a5-edca-49d7-8876-d2a5b78745ea");
+    return this._httpClient.get<any>("colocation?uuid=69e349a5-edca-49d7-8876-d2a5b78745ea");
   }
 }
