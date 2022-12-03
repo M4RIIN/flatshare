@@ -4,12 +4,14 @@ import com.lagrange.colocation.FlatShare;
 import com.lagrange.colocation.IColocationService;
 import com.lagrange.services.SEEDGENERATOR;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin
 public class TacheController {
 
     private final IColocationService colocationService;
