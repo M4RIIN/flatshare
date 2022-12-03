@@ -1,3 +1,6 @@
+import { Colocation } from './../../../../assets/models/rest';
+import { Subscription } from 'rxjs';
+import { ColocationService } from './../../../services/colocation.service';
 import { Component, OnInit } from '@angular/core';
 
 interface Place {
@@ -15,33 +18,36 @@ interface Place {
 })
 export class HomeComponent implements OnInit {
   places: Array<Place> = [];
-  constructor() {}
+  nbrColocataires:number = 0;
+  nbrTacheCommunes:number = 0;
+  nbrTachePrivees:number = 0;
+  colocation!:Colocation;
+  constructor(private colocationService:ColocationService) {}
+  
   ngOnInit() {
-    this.places = [
-      {
-        imgSrc: 'assets/images/card-1.jpg',
-        name: 'Cozy 5 Stars Apartment',
-        description: `The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Barcelona.`,
-        charge: '$899/night',
-        location: 'Barcelona, Spain'
-      },
-      {
-        imgSrc: 'assets/images/card-2.jpg',
-        name: 'Office Studio',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the night life in London, UK.`,
-        charge: '$1,119/night',
-        location: 'London, UK'
-      },
-      {
-        imgSrc: 'assets/images/card-3.jpg',
-        name: 'Beautiful Castle',
-        description: `The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio"
-              where you can enjoy the main night life in Milan.`,
-        charge: '$459/night',
-        location: 'Milan, Italy'
-      }
-    ];
+    this.colocationService.getColocation().subscribe(c =>{
+      this.nbrColocataires = c.roomates.length;
+      this.nbrTacheCommunes = c.rooms.filter(piece => piece.scope === "COMMUNE").reduce((sum,current) => sum + current.task.length,0);
+      this.nbrTachePrivees = c.rooms.filter(piece => piece.scope === "PRIVEE").reduce((sum,current) => sum + current.task.length,0);
+      this.colocation = c;
+    })
+  }
+
+  getNextMonday() {
+    const dateCopy = new Date();
+  
+    const nextMonday = new Date(
+      dateCopy.setDate(
+        dateCopy.getDate() + ((7 - dateCopy.getDay() + 1) % 7 || 7),
+      ),
+    );
+  
+    return nextMonday;
+  }
+
+  getTachesByScope(scope:string,roomate:string){
+    return this.colocation?.roomates
+        .filter(elt => elt.name === roomate)[0]
+            .taches.filter(elt=> elt.scope ===scope);
   }
 }

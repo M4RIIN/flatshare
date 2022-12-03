@@ -1,20 +1,20 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'danger'" [icon]="'bookmarks'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    <app-stat [bgClass]="'danger'" icon="task" [count]="nbrTacheCommunes" label="Tâches Communes"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="12" [label]="'New Task!'"></app-stat>
+    <app-stat [bgClass]="'warn'" icon="task" [count]="nbrTachePrivees" label="Tâches Privées"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="124" [label]="'New Orders!'"></app-stat>
+    <app-stat [bgClass]="'success'" [icon]="'schedule'" [count]="getNextMonday().getDay()" label="Jours Avant Reset des Tâches"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+    <app-stat [bgClass]="'info'" icon="people" [count]="nbrColocataires" label="Colocataires"></app-stat>
   </div>
 </div>
 
 <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
-  <mat-card fxFlex *ngFor="let item of places">
+  <!-- <mat-card fxFlex *ngFor="let item of places">
     <img mat-card-image [src]="item.imgSrc">
     <mat-card-header style="justify-content: center">
       <mat-card-title>
@@ -30,5 +30,38 @@
         <mat-icon class="location-icon">location_on</mat-icon> {{item.location}}
       </button>
     </mat-card-actions>
-  </mat-card>
+  </mat-card> -->
+  <div fxFlex>
+    <mat-accordion>
+      <mat-expansion-panel  *ngFor="let roomate of colocation?.roomates" >
+        <mat-expansion-panel-header>
+          <mat-panel-title class="capitalize">
+            {{roomate?.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{roomate.taches.length}} tâche(s) restante(s)
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="flex flex-row">
+          <div class="flex-1">
+            <h2>Tâches privées</h2>
+            <ul>
+              <li *ngFor="let tache of getTachesByScope('PRIVEE',roomate.name)">
+                  {{tache.nom}}
+            </ul>
+          </div>
+          <div class="flex-1">
+            <h2>Tâches communes</h2>
+            <ul>
+              <li *ngFor="let tache of getTachesByScope('COMMUNE',roomate.name)">
+                  {{tache.nom}}
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  
 </div>
