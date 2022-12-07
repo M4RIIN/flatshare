@@ -11,11 +11,18 @@ import java.util.Optional;
 @EqualsAndHashCode
 public class Tache {
     private final String libelle;
+
+    private final String piece;
     private Optional<ColocataireId> colocataireId;
 
-    public Tache(String libelle) {
+    public Tache(String libelle, String piece) {
         this.libelle = libelle;
+        this.piece = piece;
         colocataireId = Optional.empty();
+    }
+
+    public String getPiece() {
+        return piece;
     }
 
     public String getLibelle() {

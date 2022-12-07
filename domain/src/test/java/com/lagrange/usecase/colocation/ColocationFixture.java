@@ -37,11 +37,11 @@ public final class ColocationFixture {
     }
 
     public static Tache creerTacheFaireCuisine() {
-        return new Tache("faire la cuisine");
+        return new Tache("faire la cuisine", piece);
     }
 
     public static Tache creerTacheNettoyerSol() {
-        return new Tache("nettoyer sol");
+        return new Tache("nettoyer sol", piece);
     }
 
     public static Piece chambrePrivee() {

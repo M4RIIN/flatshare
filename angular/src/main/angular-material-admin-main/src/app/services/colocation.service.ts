@@ -13,13 +13,15 @@ import { environment } from 'src/environments/environment';
 export class ColocationService {
 
   private colocation$: Observable<Colocation>;
+  public userConnected:string;
 
-  constructor(private _httpClient: HttpClient) { 
+ private constructor(private _httpClient: HttpClient) { 
     this.loadColocation();
   }
 
   loadColocation():void{
-  this.colocation$ =  this._httpClient.get<any>(environment.baseUrl + "colocation?uuid=69e349a5-edca-49d7-8876-d2a5b78745ea");
+    this.userConnected = localStorage.getItem("userConnected");
+    this.colocation$ =  this._httpClient.get<any>(environment.baseUrl + "colocation?uuid=69e349a5-edca-49d7-8876-d2a5b78745ea");
   }
 
   getColocation():Observable<Colocation>{

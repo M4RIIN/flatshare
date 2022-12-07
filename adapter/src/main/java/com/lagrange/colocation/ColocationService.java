@@ -48,7 +48,7 @@ public class ColocationService implements IColocationService {
     }
 
     private List<com.lagrange.colocation.Tache> mapTacheWithOwner(Colocataire elt,List<Piece> pieces) {
-        return getTachesCollocataire(elt).stream().map(t -> new com.lagrange.colocation.Tache(t.getLibelle(), getScopeOfTache(t.getLibelle(),pieces))).collect(Collectors.toList());
+        return getTachesCollocataire(elt).stream().map(t -> new com.lagrange.colocation.Tache(t.getLibelle(), getScopeOfTache(t.getLibelle(),pieces), t.getPiece())).collect(Collectors.toList());
     }
 
     private String getScopeOfTache(String tache,List<Piece> pieces){
@@ -68,6 +68,6 @@ public class ColocationService implements IColocationService {
     }
 
     private List<com.lagrange.colocation.Tache> mapTache(Piece piece) {
-        return piece.getTaches().stream().map(elt -> new com.lagrange.colocation.Tache(elt.getLibelle(),piece.getScopePiece().name())).collect(Collectors.toList());
+        return piece.getTaches().stream().map(elt -> new com.lagrange.colocation.Tache(elt.getLibelle(),piece.getScopePiece().name(), piece.getTypePiece().name())).collect(Collectors.toList());
     }
 }

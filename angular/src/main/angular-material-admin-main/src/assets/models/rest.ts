@@ -20,4 +20,5 @@ export class Roomate{
 export class Tache{
   nom!:string;
   scope!:string;
+  piece!:string;
 }

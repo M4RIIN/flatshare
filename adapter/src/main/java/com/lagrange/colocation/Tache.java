@@ -4,9 +4,12 @@ public class Tache {
     private final String nom;
     private final String scope;
 
-    public Tache(String nom, String scope) {
+    private final String piece;
+
+    public Tache(String nom, String scope, String piece) {
         this.nom = nom;
         this.scope = scope;
+        this.piece = piece;
     }
 
     public String getNom() {
@@ -15,5 +18,9 @@ public class Tache {
 
     public String getScope() {
         return scope;
+    }
+
+    public String getPiece() {
+        return piece;
     }
 }

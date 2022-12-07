@@ -1,12 +1,12 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'danger'" icon="task" [count]="nbrTacheCommunes" label="Tâches Communes"></app-stat>
+    <app-stat [bgClass]="'danger'" icon="task" [count]="nbrTachePrivees" label="Tâches Privées"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'warn'" icon="task" [count]="nbrTachePrivees" label="Tâches Privées"></app-stat>
+    <app-stat [bgClass]="'warn'" icon="task" [count]="nbrTacheCommunes" label="Tâches Communes"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
-    <app-stat [bgClass]="'success'" [icon]="'schedule'" [count]="getNextMonday().getDay()" label="Jours Avant Reset des Tâches"></app-stat>
+    <app-stat [bgClass]="'success'" [icon]="'schedule'" [count]="getNextMonday().getDate() - getNow().getDate() + 'j et ' + abs(getNextMonday().getHours() - getNow().getHours())+ 'h ' + (abs((getNextMonday().getMinutes() - getNow().getMinutes())%60)) + 'm'" label="Avant Reset des Tâches"></app-stat>
   </div>
   <div class="mb10" fxFlex="24" fxFlex.lt-lg="49">
     <app-stat [bgClass]="'info'" icon="people" [count]="nbrColocataires" label="Colocataires"></app-stat>
@@ -14,6 +14,22 @@
 </div>
 
 <div class="mt20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayout.lt-md="column" fxLayoutGap="20px">
+  <app-tache-list
+    fxFlex
+    [taches]="getTachesByScope('PRIVEE',colocationService.userConnected)"
+    title="Tâches privées"
+    color="warn"
+    >
+
+  </app-tache-list>
+  <app-tache-list 
+    fxFlex
+    [taches]="getTachesByScope('COMMUNE',colocationService.userConnected)"
+    title="Tâches communes"
+    color="accent"
+    >
+
+  </app-tache-list>
   <!-- <mat-card fxFlex *ngFor="let item of places">
     <img mat-card-image [src]="item.imgSrc">
     <mat-card-header style="justify-content: center">
@@ -31,6 +47,10 @@
       </button>
     </mat-card-actions>
   </mat-card> -->
+
+
+<!-- 
+
   <div fxFlex>
     <mat-accordion>
       <mat-expansion-panel  *ngFor="let roomate of colocation?.roomates" >
@@ -62,6 +82,6 @@
   
       </mat-expansion-panel>
     </mat-accordion>
-  </div>
+  </div> -->
   
 </div>

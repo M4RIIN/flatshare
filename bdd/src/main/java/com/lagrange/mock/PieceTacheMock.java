@@ -12,32 +12,32 @@ public class PieceTacheMock implements PieceTacheRepository {
     static {
         bdd = new HashMap<>();
         bdd.put(TypePiece.CHAMBRE, Arrays.asList(
-            new Tache("Passer aspirateur chambre"),
-            new Tache("Ranger chambre"),
-            new Tache("Changer draps")
+            new Tache("Passer aspirateur chambre", "chambre"),
+            new Tache("Ranger chambre", "chambre"),
+            new Tache("Changer draps", "chambre")
         ));
         bdd.put(TypePiece.CUISINE, Arrays.asList(
-            new Tache("Nettoyer sol cuisine"),
-            new Tache("Nettoyer plan de travail"),
-            new Tache("Ranger cuisine")
+            new Tache("Nettoyer sol cuisine", "cuisine"),
+            new Tache("Nettoyer plan de travail", "cuisine"),
+            new Tache("Ranger cuisine", "cuisine")
         ));
         bdd.put(TypePiece.TOILETTES, Arrays.asList(
-            new Tache("Nettoyer sol toilettes"),
-            new Tache("Nettoyer toilettes")
+            new Tache("Nettoyer sol toilettes", "toilettes"),
+            new Tache("Nettoyer toilettes", "toilettes")
         ));
         bdd.put(TypePiece.SALLE_DE_BAIN, Arrays.asList(
-            new Tache("Nettoyer sol salle de bain"),
-            new Tache("Nettoyer douche/baignoire"),
-            new Tache("Nettoyer siphon")
+            new Tache("Nettoyer sol salle de bain", "salle de bain"),
+            new Tache("Nettoyer douche/baignoire", "salle de bain"),
+            new Tache("Nettoyer siphon", "salle de bain")
         ));
         bdd.put(TypePiece.SALON, Arrays.asList(
-            new Tache("Nettoyer sol salon"),
-            new Tache("Ranger salon"),
-            new Tache("Nettoyer vitre salon"),
-            new Tache("Enlever toiles araignées")
+            new Tache("Nettoyer sol salon", "salon"),
+            new Tache("Ranger salon", "salon"),
+            new Tache("Nettoyer vitre salon", "salon"),
+            new Tache("Enlever toiles araignées", "salon")
         ));
         bdd.put(TypePiece.ESCALIER, Arrays.asList(
-            new Tache("Nettoyer sol escalier")
+            new Tache("Nettoyer sol escalier", "escalier")
         ));
     }
 

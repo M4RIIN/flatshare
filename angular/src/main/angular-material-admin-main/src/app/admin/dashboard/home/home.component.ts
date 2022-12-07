@@ -22,20 +22,20 @@ export class HomeComponent implements OnInit {
   nbrTacheCommunes:number = 0;
   nbrTachePrivees:number = 0;
   colocation!:Colocation;
-  constructor(private colocationService:ColocationService) {}
+  constructor(public  colocationService:ColocationService) {}
   
   ngOnInit() {
     this.colocationService.getColocation().subscribe(c =>{
-      this.nbrColocataires = c.roomates.length;
-      this.nbrTacheCommunes = c.rooms.filter(piece => piece.scope === "COMMUNE").reduce((sum,current) => sum + current.task.length,0);
-      this.nbrTachePrivees = c.rooms.filter(piece => piece.scope === "PRIVEE").reduce((sum,current) => sum + current.task.length,0);
       this.colocation = c;
+      this.nbrColocataires = c.roomates.length;
+      this.nbrTacheCommunes = this.getTachesByScope('COMMUNE',this.colocationService.userConnected).length;
+      this.nbrTachePrivees = this.getTachesByScope('PRIVEE',this.colocationService.userConnected).length;
     })
   }
 
-  getNextMonday() {
+  getNextMonday():Date {
     const dateCopy = new Date();
-  
+    dateCopy.setHours(12,0)
     const nextMonday = new Date(
       dateCopy.setDate(
         dateCopy.getDate() + ((7 - dateCopy.getDay() + 1) % 7 || 7),
@@ -43,6 +43,12 @@ export class HomeComponent implements OnInit {
     );
   
     return nextMonday;
+  }
+  getNow():Date{
+    return new Date();
+  }
+  abs(value){
+    return Math.abs(value);
   }
 
   getTachesByScope(scope:string,roomate:string){

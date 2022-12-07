@@ -11,6 +11,9 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './home/home.component';
 import { StatComponent } from './stat/stat.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { TacheListComponent } from './tache-list/tache-list.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider'; 
 
 @NgModule({
   imports: [
@@ -22,8 +25,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDividerModule
   ],
-  declarations: [HomeComponent, StatComponent]
+  declarations: [HomeComponent, StatComponent,TacheListComponent]
 })
 export class DashboardModule {}
