@@ -13,7 +13,8 @@ import { StatComponent } from './stat/stat.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { TacheListComponent } from './tache-list/tache-list.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatDividerModule} from '@angular/material/divider'; 
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatIconModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ],
   declarations: [HomeComponent, StatComponent,TacheListComponent]
 })

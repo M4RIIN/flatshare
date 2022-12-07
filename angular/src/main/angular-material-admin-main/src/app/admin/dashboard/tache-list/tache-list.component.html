@@ -30,7 +30,7 @@
       <ng-container matColumnDef="piece">
         <th mat-header-cell *matHeaderCellDef> Pièce </th>
         <td mat-cell *matCellDef="let element"> 
-          <mat-icon>{{getIconNameFromPieceName(element.piece)}}</mat-icon>  
+          <mat-icon [matTooltip]="element.piece | titlecase">{{getIconNameFromPieceName(element.piece)}}</mat-icon>  
         </td>
       </ng-container>
     
