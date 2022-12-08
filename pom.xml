@@ -14,7 +14,6 @@
         <module>adapter</module>
         <module>spring/springconfig</module>
         <module>spring/springcontrollers</module>
-        <module>frontend</module>
         <module>angular</module>
     </modules>
 
