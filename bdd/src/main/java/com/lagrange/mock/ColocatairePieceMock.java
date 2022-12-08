@@ -22,6 +22,10 @@ public class ColocatairePieceMock {
         list.add(new ColocatairePiece(UUID.fromString("da4d42d5-4e8e-4cee-8d74-3f88ec9c78ce"),TypePiece.CHAMBRE));
         list.add(new ColocatairePiece(UUID.fromString("da4d42d5-4e8e-4cee-8d74-3f88ec9c78ce"),TypePiece.SALLE_DE_BAIN));
         list.add(new ColocatairePiece(UUID.fromString("da4d42d5-4e8e-4cee-8d74-3f88ec9c78ce"),TypePiece.TOILETTES));
+
+        list.add(new ColocatairePiece(UUID.fromString("1fbd1070-072d-4b88-b385-ede53a570265"),TypePiece.CHAMBRE));
+        list.add(new ColocatairePiece(UUID.fromString("1fbd1070-072d-4b88-b385-ede53a570265"),TypePiece.SALLE_DE_BAIN));
+        list.add(new ColocatairePiece(UUID.fromString("1fbd1070-072d-4b88-b385-ede53a570265"),TypePiece.TOILETTES));
     }
 
     private final PieceTacheRepository pieceTacheMock;

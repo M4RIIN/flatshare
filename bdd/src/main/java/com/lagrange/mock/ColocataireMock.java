@@ -16,7 +16,8 @@ public class ColocataireMock {
         colocataireMap.put(UUID.fromString("69e349a5-edca-49d7-8876-d2a5b78745ea"),List.of(
             new ColocataireData(UUID.fromString("4a5b20ed-e3ee-4193-8c65-3c86ab9cc52d"),"marin"),
             new ColocataireData(UUID.fromString("90fe40b7-8a96-41eb-ae1b-80c3cf57677b"),"tom"),
-            new ColocataireData(UUID.fromString("da4d42d5-4e8e-4cee-8d74-3f88ec9c78ce"),"louis")
+            new ColocataireData(UUID.fromString("da4d42d5-4e8e-4cee-8d74-3f88ec9c78ce"),"louis"),
+                new ColocataireData(UUID.fromString("1fbd1070-072d-4b88-b385-ede53a570265"),"donovan")
         ));
     }
 

@@ -15,7 +15,7 @@ export class TopNavComponent implements OnInit {
   
 
   constructor(private readonly router: Router,
-    private colocationService:ColocationService,
+    public colocationService:ColocationService,
     private cdr:ChangeDetectorRef) {}
 
   ngOnInit() {
