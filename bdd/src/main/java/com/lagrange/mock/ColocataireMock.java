@@ -21,7 +21,7 @@ public class ColocataireMock {
         ));
     }
 
-    
+
     private final ColocatairePieceMock colocatairePieceMock;
 
     public ColocataireMock(ColocatairePieceMock colocatairePieceMock) {
