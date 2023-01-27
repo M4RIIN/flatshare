@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar spring/springconfig/target/flatshare.jar --p $PORT
+web: java $JAVA_OPTS -jar spring/springconfig/target/flatshare.jar
